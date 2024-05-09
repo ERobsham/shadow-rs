@@ -38,6 +38,7 @@ extern crate libc;
 use std::ffi::CString;
 use std::ffi::CStr;
 
+type Long = libc::c_long;
 
 /// Represents an entry in `/etc/shadow`
 #[derive(Debug)]
@@ -47,17 +48,17 @@ pub struct Shadow {
     /// encrypted password
     pub password: String,
     /// last password change
-    pub last_change: i64,
+    pub last_change: Long,
     /// days until change allowed
-    pub min: i64,
+    pub min: Long,
     /// days before change required
-    pub max: i64,
+    pub max: Long,
     /// days warning for expiration
-    pub warn: i64,
+    pub warn: Long,
     /// days before account inactive
-    pub inactive: i64,
+    pub inactive: Long,
     /// date when account expires
-    pub expire: i64,
+    pub expire: Long,
 }
 
 impl Shadow {
